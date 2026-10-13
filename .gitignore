@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual env
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Data
+/data/
+backend/data/faiss/*
+backend/data/logs/*
+backend/data/repos/*
+backend/data/app.db
+backend/data/embeddings/*
+!backend/data/sample_code/*
+
+# Node
+node_modules/
+npm-debug.log*
+.npm-cache/
+frontend/.npm-cache/
+
+# Source-only publication workspace
+.publish/
+
+# Env
+.env
+.env.local
+data/.model-key
+data/app.db*
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #213149;
+  color: #edf3fc;
+  color-scheme: dark;
+}
+
+/* 科技感渐变背景 */
+.tech-bg {
+  background: radial-gradient(ellipse at top left, rgba(59, 130, 246, 0.18) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+              linear-gradient(135deg, #273c5b 0%, #1d2c44 100%);
+}
+
+/* 玻璃拟态卡片 */
+.glass-card {
+  background: rgba(50, 69, 99, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(164, 192, 232, 0.22);
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(9, 19, 37, 0.22);
+}
+
+/* 代码高亮 */
+.code-block pre {
+  background: #172438 !important;
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.code-block code {
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  font-size: 13px;
+}
+
+/* SSE 打字光标 */
+.typing-cursor::after {
+  content: '▋';
+  animation: blink 1s step-end infinite;
+  color: #1677ff;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #213149;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #526783;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b819e;
+}
+
+/* Ant Design 提示层 */
+.ant-message {
+  z-index: 9999 !important;
+}
+
+/* Agent 步骤动画 */
+.agent-step {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 粒子背景 */
+.particles-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particles-bg::before,
+.particles-bg::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #1677ff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px rgba(22, 119, 255, 0.3);
+  animation: float-up linear infinite;
+}
+
+.particles-bg::before {
+  left: 20%;
+  animation-duration: 20s;
+}
+
+.particles-bg::after {
+  right: 30%;
+  animation-duration: 25s;
+  animation-delay: -5s;
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) scale(1);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(0);
+    opacity: 0;
+  }
+}
+
+.chat-header {
+  min-height: 56px;
+  height: auto !important;
+  padding: 8px 16px !important;
+  gap: 12px;
+  flex-wrap: wrap;
+  line-height: normal;
+}
+
+.chat-header-actions {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.model-picker { width: 200px; }
+.chat-markdown { color: #edf3fc; line-height: 1.75; }
+.chat-markdown p + p { margin-top: 12px; }
+.chat-markdown pre { margin: 12px 0; }
+.chat-markdown a { color: #8ec1ff; }
+.chat-markdown :not(pre) > code { background: #213149; padding: 2px 5px; border-radius: 4px; }
+.chat-markdown ul, .chat-markdown ol { padding-left: 22px; }
+.chat-markdown ul { list-style: disc; }
+.chat-markdown ol { list-style: decimal; }
+.chat-markdown h1, .chat-markdown h2, .chat-markdown h3 { font-weight: 600; margin: 16px 0 8px; }
+.chat-markdown table { border-collapse: collapse; }
+.chat-markdown th, .chat-markdown td { border: 1px solid #495b75; padding: 6px 10px; }
+.model-card { border: 1px solid #495b75; border-radius: 12px; background: rgba(45,62,88,.85); padding: 20px; }
+.model-card.is-default { border-color: #6bacff; box-shadow: 0 4px 16px rgba(22,119,255,.12); }
+
+@media (max-width: 767px) {
+  .chat-header-actions { width: 100%; }
+  .model-picker { flex: 1; min-width: 160px; }
+}
